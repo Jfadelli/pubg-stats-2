@@ -1,7 +1,6 @@
 const express = require("express");
-
-const baseUrl = "https://api.pubg.com/shards/steam/";
 const { requestHeaders } = require("../config/API_HEADERS");
+const baseUrl = "https://api.pubg.com/shards/steam/";
 const { playerList } = require("../config/playerList");
 const { seasonList } = require("../config/seasonList");
 const { gameModeList } = require("../config/gameModeList");
@@ -15,12 +14,12 @@ let params = {
   gameMode: "squads"
 };
 
-function parse(params){
+function parse() {
   let request = "";
   if (params == null) {
     return;
   }
-  if (params.requestType === "match history") {
+  if (params.requestType == "match history") {
     request = request.concat(
       baseUrl,
       seasonList[params.season],

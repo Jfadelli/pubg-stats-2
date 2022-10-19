@@ -2,25 +2,27 @@ const express = require("express");
 const router = express.Router();
 const axios = require("axios");
 
-const paramParser = require('./paramsParser')
+const API_HEADERS = require("../config/API_HEADERS")
+
+const paramsParser = require('./paramsParser')
+
 let params = {
     requestType: "match history",
     playerList: "Slim_Reaper_",
-    season: "20",
+    season: "18",
     gameMode: "squads"
   };
 
-let req = paramParser.parse(params)
-console.log(req)
+let request = paramsParser.parse(params)
 
 router.get("/", async (req, res) => {
     try {
-        res.status(200).json({
-            status: 'success',
-            results: "test"
-        })
+        const res = await axios.get(request, API_HEADERS)
+            .then(res => {
+                return res.data
+            })
     } catch (err) {
-        console.log(err)
+        console.log(err.headers)
     }
 })
 

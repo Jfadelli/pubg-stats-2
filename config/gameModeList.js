@@ -3,4 +3,4 @@ const gameModeList = {
     duos: "gameMode/duo-fpp/",
     solo: "gameMode/solo-fpp/"
   };
-  
+  module.exports = {gameModeList}

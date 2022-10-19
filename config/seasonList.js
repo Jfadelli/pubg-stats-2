@@ -20,4 +20,5 @@ const seasonList = {
     "19": "seasons/division.bro.official.pc-2018-19/",
     "20": "seasons/division.bro.official.pc-2018-20/"
   };
-  
+
+  module.exports = {seasonList}
